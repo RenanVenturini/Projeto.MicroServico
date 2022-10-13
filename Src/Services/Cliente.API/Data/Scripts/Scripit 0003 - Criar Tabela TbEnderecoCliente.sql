@@ -1,0 +1,17 @@
+﻿CREATE TABLE TbEnderecoCliente (
+	EnderecoId INT IDENTITY(1,1) NOT NULL,
+	ClienteId INT NOT NULL,
+	Logradouro VARCHAR(200) NOT NULL,
+	Numero VARCHAR(10) NOT NULL,
+	Complemento VARCHAR(50) NOT NULL,
+	Cidade VARCHAR(200) NOT NULL,
+	Bairro VARCHAR (100) NOT NULL,
+	Uf VARCHAR(2) NOT NULL,
+	Cep VARCHAR(9) NOT NULL
+	PRIMARY KEY (EnderecoId)
+);
+
+ALTER TABLE TbEnderecoCliente WITH CHECK ADD CONSTRAINT FK_TbEnderecoCliente_TbCliente FOREIGN KEY(ClienteId)
+REFERENCES TbCliente(ClienteId)
+
+ALTER TABLE TbEnderecoCliente CHECK CONSTRAINT FK_TbEnderecoCliente_TbCliente
